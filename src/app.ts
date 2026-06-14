@@ -2,9 +2,13 @@ import express, { type Application, type Request, type Response } from "express"
 import { pool } from "./database";
 import { userRoute } from "./modules/auth/auth.route";
 import { issueRoute } from "./modules/issues/issue.route";
+import fs from "fs"
+import logger from "./middleware/logger";
+
 const app: Application = express()
 
 app.use(express.json());
+app.use(logger);
 
 app.get('/', (req: Request, res: Response) => {
   res.status(200).json({
@@ -14,12 +18,8 @@ app.get('/', (req: Request, res: Response) => {
 });
 
 app.use("/api/auth", userRoute);
-
 app.use("/api/issues", issueRoute)
 
-// these will be done later if there is time
-// these will be done later if there is time
-// these will be done later if there is time
 // these will be done later if there is time
 
 // app.get("/api/auth/signup/:id", async (req: Request, res: Response) => {
