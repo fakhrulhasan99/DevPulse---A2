@@ -1,6 +1,6 @@
 import type { Request, Response } from "express";
-import { pool } from "../../database";
 import { authService } from "./auth.service";
+import { sendError, sendResponse } from "../../utils/sendResponse";
 
 const userSignup = async (req: Request, res: Response) => {
   // console.log(req.body.name)
@@ -8,50 +8,39 @@ const userSignup = async (req: Request, res: Response) => {
 
   try {
     const result = await authService.userSignupInDB(req.body)
-    // const safeUser = await authService.userSignupInDB(req.body)
 
-    res.status(201).json({
-      success: true,
-      message: "User registered successfully",
-      data: result.rows[0]
-      // data: safeUser
-    })
-  } catch (error: any) {
-    res.status(500).json({
-      success: false,
-      message: error.message,
-      error: error
-    })
+    sendResponse(res, 201, "User created successfully", result);
+
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      sendError(res, 400, error.message, error);
+    } else {
+      sendError(res, 500, "Something went wrong");
+    }
   }
-}
+};
 
 const getAllUser = async (req: Request, res: Response) => {
   try {
     const result = await authService.getAllUserFromDB();
-    res.status(200).json({
-      success: true,
-      message: "Users retrived successfully",
-      data: result.rows
-    })
-  } catch (error: any) {
-    res.status(500).json({
-      success: false,
-      message: error.message,
-      error: error
-    })
+
+    sendResponse(res, 200, "Users retrieved successfully", result);
+
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      sendError(res, 400, error.message, error);
+    } else {
+      sendError(res, 500, "Something went wrong");
+    }
   }
-}
+};
 
 const userLogin = async (req: Request, res: Response) => {
 
   try {
     const result = await authService.loginUserInDB(req.body);
 
-    res.status(201).json({
-        success: true,
-        message: "User registered successfully",
-        data: result
-    })
+    sendResponse(res, 200, "User loggedin successfully", result);
   } catch (error: any) {
     res.status(500).json({
       success: false,

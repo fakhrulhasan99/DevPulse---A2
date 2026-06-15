@@ -26,7 +26,7 @@ const userSignupInDB = async (payload: IUser) => {
         [name, email, hashPassword, role]);
     // console.log(result)
     delete result.rows[0].password;
-    return result;
+    return result.rows[0];
     // const user = result.rows[0];
     // const { password : string, ...safeUser } = user;
     // return safeUser;

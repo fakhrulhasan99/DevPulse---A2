@@ -1,24 +1,18 @@
 import type { Request, Response } from "express"
 import { issueService } from "./issue.service"
 import type { JwtPayload } from "jsonwebtoken";
+import { sendError, sendResponse } from "../../utils/sendResponse";
 
 const createIssue = async (req: Request, res: Response) => {
     try {
         const userId = req.user.id;
-        // console.log(userId)
-        // console.log(req.body)
+        
         const result = await issueService.createIssueInDB(userId, req.body);
-        res.status(201).json({
-            success: true,
-            message: "Issue created successfully",
-            data: result.rows[0]
-        })
+
+        sendResponse(res,201,"Issue created successfully", result)
+
     } catch (error: any) {
-        res.status(500).json({
-            success: false,
-            message: error.message,
-            error: error
-        })
+        sendError(res, 500, error.message, error);
     }
 };
 
@@ -26,18 +20,11 @@ const getAllIssues = async (req: Request, res: Response) => {
     console.log("from controller", req.user);
     try {
         const result = await issueService.getAllIssuesFromDB(req.query);
-        console.log(result)
-        res.status(200).json({
-            success: true,
-            message: "Issues retrived successfully",
-            data: result
-        })
+        
+        sendResponse(res,200,"Issues retrived successfully",result)
+        
     } catch (error: any) {
-        res.status(500).json({
-            success: false,
-            message: error.message,
-            error: error
-        })
+        sendError(res, 500, error.message, error);
     }
 };
 
@@ -47,22 +34,13 @@ const getSingleIssue = async (req: Request, res: Response) => {
     try {
         const result = await issueService.getSingleIssueFromDB(id);
 
-        res.status(200).json({
-            success: true,
-            message: "Issue retrieved successfully",
-            data: result
-        });
+        sendResponse(res, 200, "Issue retrieved successfully", result);
+        
     } catch (error: unknown) {
         if (error instanceof Error) {
-            res.status(500).json({
-                success: false,
-                message: error.message
-            });
+            sendError(res, 400, error.message, error);
         } else {
-            res.status(500).json({
-                success: false,
-                message: "Something went wrong"
-            });
+            sendError(res, 500, "Something went wrong");
         }
     }
 };
@@ -77,22 +55,13 @@ const updateIssue = async (req: Request, res: Response) => {
             req.body
         );
 
-        res.status(200).json({
-            success: true,
-            message: "Issue updated successfully",
-            data: result
-        });
+        sendResponse(res, 200, "Issue updated successfully", result);
+        
     } catch (error: unknown) {
         if (error instanceof Error) {
-            res.status(400).json({
-                success: false,
-                message: error.message
-            });
+            sendError(res, 400, error.message, error);
         } else {
-            res.status(500).json({
-                success: false,
-                message: "Something went wrong"
-            });
+            sendError(res, 500, "Something went wrong");
         }
     }
 };
@@ -103,21 +72,13 @@ const deleteIssue = async (req: Request, res: Response) => {
 
         await issueService.deleteIssueFromDB(issueId, req.user);
 
-        res.status(200).json({
-            success: true,
-            message: "Issue deleted successfully"
-        });
+        sendResponse(res, 200, "Issue deleted successfully", null);
+        
     } catch (error: unknown) {
         if (error instanceof Error) {
-            res.status(400).json({
-                success: false,
-                message: error.message
-            });
+            sendError(res, 400, error.message, error);
         } else {
-            res.status(500).json({
-                success: false,
-                message: "Something went wrong"
-            });
+            sendError(res, 500, "Something went wrong");
         }
     }
 };

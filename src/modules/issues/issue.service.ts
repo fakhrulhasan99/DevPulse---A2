@@ -37,7 +37,7 @@ const createIssueInDB = async (
         [reporter_id, title, description, type]
     );
 
-    return result;
+    return result.rows[0];
 };
 
 const getAllIssuesFromDB = async (query: IGetIssuesQuery) => {
