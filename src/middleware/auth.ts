@@ -13,7 +13,7 @@ const auth = (...roles: string[]) => {
             if (!token) {
                 res.status(401).json({
                     success: false,
-                    message: "Unauthorized success!!"
+                    message: "Unauthorized access!!"
                 })
             }
             const decoded = jwt.verify(token as string, config.secret as string) as IAuthUser;

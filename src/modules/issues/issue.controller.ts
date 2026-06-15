@@ -19,7 +19,7 @@ const createIssue = async (req: Request, res: Response) => {
 };
 
 const getAllIssues = async (req: Request, res: Response) => {
-    console.log("from controller", req.user);
+    
     try {
         const result = await issueService.getAllIssuesFromDB(req.query);
         
