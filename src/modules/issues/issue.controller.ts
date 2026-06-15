@@ -9,9 +9,13 @@ const createIssue = async (req: Request, res: Response) => {
 
         sendResponse(res,201,"Issue created successfully", result)
 
-    } catch (error: any) {
-        sendError(res, 500, error.message, error);
+    } catch (error: unknown) {
+    if (error instanceof Error) {
+      sendError(res, 500, error.message, error);
+    } else {
+      sendError(res, 500, "Something went wrong");
     }
+  }
 };
 
 const getAllIssues = async (req: Request, res: Response) => {
@@ -21,9 +25,13 @@ const getAllIssues = async (req: Request, res: Response) => {
         
         sendResponse(res,200,"Issues retrived successfully",result)
         
-    } catch (error: any) {
-        sendError(res, 500, error.message, error);
+    } catch (error: unknown) {
+    if (error instanceof Error) {
+      sendError(res, 500, error.message, error);
+    } else {
+      sendError(res, 500, "Something went wrong");
     }
+  }
 };
 
 const getSingleIssue = async (req: Request, res: Response) => {

@@ -232,3 +232,13 @@ Method -> GET -- Time -> 1781499086438 -- URL -> /api/auth/users
 Method -> GET -- Time -> 1781499089925 -- URL -> /api/auth/users
 
 Method -> GET -- Time -> 1781499120912 -- URL -> /api/auth/signup
+
+Method -> GET -- Time -> 1781501682194 -- URL -> /
+
+Method -> GET -- Time -> 1781501682800 -- URL -> /
+
+Method -> GET -- Time -> 1781501689714 -- URL -> /api/auth/signup
+
+Method -> GET -- Time -> 1781501691434 -- URL -> /api/auth/signup
+
+Method -> GET -- Time -> 1781501691905 -- URL -> /api/auth/signup

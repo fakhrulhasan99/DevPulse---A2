@@ -38,12 +38,12 @@ const userLogin = async (req: Request, res: Response) => {
     const result = await authService.loginUserInDB(req.body);
 
     sendResponse(res, 200, "User loggedin successfully", result);
-  } catch (error: any) {
-    res.status(500).json({
-      success: false,
-      message: error.message,
-      error: error
-    })
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      sendError(res, 500, error.message, error);
+    } else {
+      sendError(res, 500, "Something went wrong");
+    }
   }
 }
 

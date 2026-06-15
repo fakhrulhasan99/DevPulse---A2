@@ -150,8 +150,8 @@ const updateIssueInDB = async (
     }
 
     const fields: string[] = [];
-    const values: any[] = [];
-
+    const values: (string | number)[] = [];
+    
     if (payload.title) {
         values.push(payload.title);
         fields.push(`title = $${values.length}`);
