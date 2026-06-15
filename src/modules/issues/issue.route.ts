@@ -11,6 +11,9 @@ router.get("/", issueController.getAllIssues);
 
 router.get("/:id", issueController.getSingleIssue);
 
+router.patch("/:id", auth(USER_ROLE.contributor, USER_ROLE.maintainer), issueController.updateIssue);
+
+
 // app.put("/:id", async (req: Request, res: Response) => {
 //   const id = req.params.id;
 //   const { name, password, role } = req.body;

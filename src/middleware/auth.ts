@@ -2,6 +2,7 @@ import type { NextFunction, Request, Response } from "express"
 import jwt, { type JwtPayload } from "jsonwebtoken";
 import config from "../config";
 import { pool } from "../database";
+import type { IAuthUser } from "../types";
 
 const auth = (...roles: string[]) => {
     return async (req: Request, res: Response, next: NextFunction) => {
@@ -17,7 +18,7 @@ const auth = (...roles: string[]) => {
                     message: "Unauthorized success!!"
                 })
             }
-            const decoded = jwt.verify(token as string, config.secret as string) as JwtPayload;
+            const decoded = jwt.verify(token as string, config.secret as string) as IAuthUser;
             // console.log(decoded)
 
             const userData = await pool.query(`

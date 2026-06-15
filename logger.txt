@@ -168,3 +168,15 @@ Method -> GET -- Time -> 1781491985182 -- URL -> /api/issues/3
 Method -> GET -- Time -> 1781492199743 -- URL -> /api/issues/3
 
 Method -> GET -- Time -> 1781492215063 -- URL -> /api/issues/33
+
+Method -> GET -- Time -> 1781493502842 -- URL -> /api/issues/4
+
+Method -> GET -- Time -> 1781493557544 -- URL -> /api/issues/4
+
+Method -> PATCH -- Time -> 1781493578723 -- URL -> /api/issues/4
+
+Method -> PATCH -- Time -> 1781493613526 -- URL -> /api/issues/4
+
+Method -> POST -- Time -> 1781493672736 -- URL -> /api/auth/login
+
+Method -> PATCH -- Time -> 1781493706355 -- URL -> /api/issues/4
