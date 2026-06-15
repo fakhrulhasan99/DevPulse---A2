@@ -6,9 +6,10 @@ import { USER_ROLE } from "../../types";
 const router = Router();
 
 router.post("/", auth(USER_ROLE.contributor, USER_ROLE.maintainer), issueController.createIssue);
-// router.get("/signup", authController.getAllUser);
-router.get("/", auth(USER_ROLE.contributor, USER_ROLE.maintainer), issueController.getAllIssues);
-// , auth(USER_ROLE.contributor, USER_ROLE.maintainer)
+
+router.get("/", issueController.getAllIssues);
+
+router.get("/:id", issueController.getSingleIssue);
 
 // app.put("/:id", async (req: Request, res: Response) => {
 //   const id = req.params.id;

@@ -158,3 +158,13 @@ Method -> POST -- Time -> 1781490093468 -- URL -> /api/issues
 Method -> GET -- Time -> 1781490109286 -- URL -> /api/issues?type=feature_request
 
 Method -> GET -- Time -> 1781490139990 -- URL -> /api/issues?status=open
+
+Method -> GET -- Time -> 1781490361390 -- URL -> /api/issues?status=open
+
+Method -> GET -- Time -> 1781490448289 -- URL -> /api/issues
+
+Method -> GET -- Time -> 1781491985182 -- URL -> /api/issues/3
+
+Method -> GET -- Time -> 1781492199743 -- URL -> /api/issues/3
+
+Method -> GET -- Time -> 1781492215063 -- URL -> /api/issues/33

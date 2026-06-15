@@ -38,9 +38,36 @@ const getAllIssues = async (req: Request, res: Response) => {
             error: error
         })
     }
-}
+};
+
+const getSingleIssue = async (req: Request, res: Response) => {
+    const id = Number(req.params.id);
+
+    try {
+        const result = await issueService.getSingleIssueFromDB(id);
+
+        res.status(200).json({
+            success: true,
+            message: "Issue retrieved successfully",
+            data: result
+        });
+    } catch (error: unknown) {
+        if (error instanceof Error) {
+            res.status(500).json({
+                success: false,
+                message: error.message
+            });
+        } else {
+            res.status(500).json({
+                success: false,
+                message: "Something went wrong"
+            });
+        }
+    }
+};
 
 export const issueController = {
     createIssue,
-    getAllIssues
+    getAllIssues,
+    getSingleIssue
 }
