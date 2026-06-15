@@ -1,15 +1,5 @@
 import { pool } from "../../database";
-import type { ICreateIssue, IUpdateIssue } from "./issue.inferface";
-
-type SortType = "newest" | "oldest";
-type IssueType = "bug" | "feature_request";
-type IssueStatus = "open" | "in_progress" | "resolved";
-
-interface IGetIssuesQuery {
-    sort?: SortType;
-    type?: IssueType;
-    status?: IssueStatus;
-}
+import type { ICreateIssue, IGetIssuesQuery, IUpdateIssue } from "./issue.inferface";
 
 const createIssueInDB = async (
     reporter_id: number,
@@ -17,7 +7,6 @@ const createIssueInDB = async (
 ) => {
     const { title, description, type } = payload;
 
-    // validate user exists
     const user = await pool.query(
         `SELECT id FROM users WHERE id=$1`,
         [reporter_id]
@@ -136,7 +125,6 @@ const updateIssueInDB = async (
     user: { id: number; role: string },
     payload: IUpdateIssue
 ) => {
-    // STEP 1: get issue
     const issueResult = await pool.query(
         `SELECT * FROM issues WHERE id=$1`,
         [issueId]
@@ -148,7 +136,6 @@ const updateIssueInDB = async (
 
     const issue = issueResult.rows[0];
 
-    // STEP 2: authorization rules
     const isMaintainer = user.role === "maintainer";
     const isOwner = issue.reporter_id === user.id;
 
@@ -162,7 +149,6 @@ const updateIssueInDB = async (
         }
     }
 
-    // STEP 3: build dynamic update
     const fields: string[] = [];
     const values: any[] = [];
 
@@ -170,24 +156,19 @@ const updateIssueInDB = async (
         values.push(payload.title);
         fields.push(`title = $${values.length}`);
     }
-
     if (payload.description) {
         values.push(payload.description);
         fields.push(`description = $${values.length}`);
     }
-
     if (payload.type) {
         values.push(payload.type);
         fields.push(`type = $${values.length}`);
     }
-
-    // always update timestamp
     fields.push(`updated_at = NOW()`);
 
     if (fields.length === 0) {
-        return issue; // nothing to update
+        return issue;
     }
-
     values.push(issueId);
 
     const query = `
@@ -206,22 +187,16 @@ const deleteIssueFromDB = async (
     issueId: number,
     user: { id: number; role: string }
 ) => {
-    // STEP 1: check role
     if (user.role !== "maintainer") {
         throw new Error("Only maintainer can delete issues");
     }
-
-    // STEP 2: check if issue exists
     const issueResult = await pool.query(
         `SELECT * FROM issues WHERE id=$1`,
         [issueId]
     );
-
     if (issueResult.rows.length === 0) {
         throw new Error("Issue not found");
     }
-
-    // STEP 3: delete issue
     await pool.query(
         `DELETE FROM issues WHERE id=$1`,
         [issueId]

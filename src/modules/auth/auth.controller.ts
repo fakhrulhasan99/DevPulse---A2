@@ -3,9 +3,6 @@ import { authService } from "./auth.service";
 import { sendError, sendResponse } from "../../utils/sendResponse";
 
 const userSignup = async (req: Request, res: Response) => {
-  // console.log(req.body.name)
-  // const { name, email, password, role } = req.body;
-
   try {
     const result = await authService.userSignupInDB(req.body)
 

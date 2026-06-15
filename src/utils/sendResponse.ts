@@ -12,7 +12,6 @@ interface IErrorResponse {
     errors?: unknown;
 }
 
-// SUCCESS RESPONSE
 export const sendResponse = <T>(
     res: Response,
     statusCode: number,
@@ -26,7 +25,6 @@ export const sendResponse = <T>(
     } as ISuccessResponse<T>);
 };
 
-// ERROR RESPONSE
 export const sendError = (
     res: Response,
     statusCode: number,

@@ -218,3 +218,17 @@ Method -> GET -- Time -> 1781498108643 -- URL -> /api/issues/12
 Method -> PATCH -- Time -> 1781498178777 -- URL -> /api/issues/12
 
 Method -> DELETE -- Time -> 1781498226283 -- URL -> /api/issues/1
+
+Method -> GET -- Time -> 1781499049762 -- URL -> /
+
+Method -> GET -- Time -> 1781499051225 -- URL -> /favicon.ico
+
+Method -> GET -- Time -> 1781499057644 -- URL -> /api/issues
+
+Method -> GET -- Time -> 1781499074302 -- URL -> /api/users
+
+Method -> GET -- Time -> 1781499086438 -- URL -> /api/auth/users
+
+Method -> GET -- Time -> 1781499089925 -- URL -> /api/auth/users
+
+Method -> GET -- Time -> 1781499120912 -- URL -> /api/auth/signup

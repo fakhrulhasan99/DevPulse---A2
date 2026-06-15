@@ -1,12 +1,10 @@
 import type { Request, Response } from "express"
 import { issueService } from "./issue.service"
-import type { JwtPayload } from "jsonwebtoken";
 import { sendError, sendResponse } from "../../utils/sendResponse";
 
 const createIssue = async (req: Request, res: Response) => {
     try {
         const userId = req.user.id;
-        
         const result = await issueService.createIssueInDB(userId, req.body);
 
         sendResponse(res,201,"Issue created successfully", result)
@@ -51,7 +49,7 @@ const updateIssue = async (req: Request, res: Response) => {
 
         const result = await issueService.updateIssueInDB(
             issueId,
-            req.user, // from JWT middleware
+            req.user,
             req.body
         );
 
@@ -73,7 +71,7 @@ const deleteIssue = async (req: Request, res: Response) => {
         await issueService.deleteIssueFromDB(issueId, req.user);
 
         sendResponse(res, 200, "Issue deleted successfully", null);
-        
+
     } catch (error: unknown) {
         if (error instanceof Error) {
             sendError(res, 400, error.message, error);
@@ -82,7 +80,6 @@ const deleteIssue = async (req: Request, res: Response) => {
         }
     }
 };
-
 
 export const issueController = {
     createIssue,

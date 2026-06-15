@@ -24,12 +24,9 @@ const userSignupInDB = async (payload: IUser) => {
         VALUES($1,$2,$3,COALESCE($4,'contributor')) 
         RETURNING *`,
         [name, email, hashPassword, role]);
-    // console.log(result)
+        
     delete result.rows[0].password;
     return result.rows[0];
-    // const user = result.rows[0];
-    // const { password : string, ...safeUser } = user;
-    // return safeUser;
 };
 
 const getAllUserFromDB = async () => {
@@ -51,7 +48,7 @@ const loginUserInDB = async (payload: IUserLogin) => {
     }
     const user = userData.rows[0];
     const matchPassword = await bcrypt.compare(password, user.password);
-    // console.log(matchPassword)
+    
     if (!matchPassword) {
         throw new Error("Invalid Credentials!!")
     }
