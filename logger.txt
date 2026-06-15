@@ -14,3 +14,127 @@ Method -> GET -- Time -> 1781315631772 -- URL -> /
 Method -> GET -- Time -> 1781315634923 -- URL -> /
 
 Method -> GET -- Time -> 1781315636891 -- URL -> /
+
+Method -> POST -- Time -> 1781400506079 -- URL -> /api/issues
+
+Method -> GET -- Time -> 1781400648700 -- URL -> /api/issues
+
+Method -> GET -- Time -> 1781400700788 -- URL -> /api/issues
+
+Method -> GET -- Time -> 1781401958282 -- URL -> /
+
+Method -> GET -- Time -> 1781401961535 -- URL -> /favicon.ico
+
+Method -> GET -- Time -> 1781401974839 -- URL -> /api/users
+
+Method -> GET -- Time -> 1781401992007 -- URL -> /api/issues
+
+Method -> POST -- Time -> 1781402202774 -- URL -> /api/auth/login
+
+Method -> GET -- Time -> 1781402263422 -- URL -> /api/issues
+
+Method -> GET -- Time -> 1781402457536 -- URL -> /api/issues
+
+Method -> GET -- Time -> 1781402459433 -- URL -> /api/issues
+
+Method -> GET -- Time -> 1781402462397 -- URL -> /api/issues
+
+Method -> GET -- Time -> 1781402469658 -- URL -> /api/issues
+
+Method -> GET -- Time -> 1781402478126 -- URL -> /api/issues
+
+Method -> GET -- Time -> 1781402496847 -- URL -> /api/issues
+
+Method -> GET -- Time -> 1781402505647 -- URL -> /api/issues
+
+Method -> GET -- Time -> 1781402508877 -- URL -> /api/issues
+
+Method -> GET -- Time -> 1781402522541 -- URL -> /
+
+Method -> GET -- Time -> 1781403532268 -- URL -> /api/issues
+
+Method -> GET -- Time -> 1781403572792 -- URL -> /api/issues
+
+Method -> GET -- Time -> 1781403601007 -- URL -> /api/issues
+
+Method -> GET -- Time -> 1781403632208 -- URL -> /api/issues
+
+Method -> GET -- Time -> 1781403800698 -- URL -> /api/issues
+
+Method -> GET -- Time -> 1781403873438 -- URL -> /api/issues
+
+Method -> POST -- Time -> 1781403979664 -- URL -> /api/auth/login
+
+Method -> GET -- Time -> 1781404004203 -- URL -> /api/issues
+
+Method -> GET -- Time -> 1781404043867 -- URL -> /api/issues
+
+Method -> GET -- Time -> 1781404141212 -- URL -> /api/issues
+
+Method -> GET -- Time -> 1781404190192 -- URL -> /api/issues
+
+Method -> GET -- Time -> 1781404349113 -- URL -> /api/issues
+
+Method -> GET -- Time -> 1781404391740 -- URL -> /api/issues
+
+Method -> GET -- Time -> 1781405158332 -- URL -> /api/issues
+
+Method -> GET -- Time -> 1781405245396 -- URL -> /api/issues
+
+Method -> GET -- Time -> 1781405295466 -- URL -> /api/issues
+
+Method -> POST -- Time -> 1781441454925 -- URL -> /api/auth/signup
+
+Method -> POST -- Time -> 1781446482195 -- URL -> /api/auth/signup
+
+Method -> POST -- Time -> 1781446932001 -- URL -> /api/auth/signup
+
+Method -> POST -- Time -> 1781446935892 -- URL -> /api/auth/signup
+
+Method -> POST -- Time -> 1781446938417 -- URL -> /api/auth/signup
+
+Method -> POST -- Time -> 1781447324169 -- URL -> /api/auth/signup
+
+Method -> POST -- Time -> 1781447378493 -- URL -> /api/auth/signup
+
+Method -> POST -- Time -> 1781447440840 -- URL -> /api/auth/signup
+
+Method -> POST -- Time -> 1781447456471 -- URL -> /api/auth/signup
+
+Method -> GET -- Time -> 1781448204387 -- URL -> /api/issues
+
+Method -> GET -- Time -> 1781448291028 -- URL -> /api/issues
+
+Method -> GET -- Time -> 1781449029013 -- URL -> /api/issues
+
+Method -> GET -- Time -> 1781449063203 -- URL -> /api/issues
+
+Method -> GET -- Time -> 1781483005629 -- URL -> /api/issues
+
+Method -> GET -- Time -> 1781483124313 -- URL -> /api/auth/signup
+
+Method -> POST -- Time -> 1781483167456 -- URL -> /api/auth/login
+
+Method -> GET -- Time -> 1781483202005 -- URL -> /api/auth/signup
+
+Method -> GET -- Time -> 1781483214714 -- URL -> /api/auth/signup
+
+Method -> POST -- Time -> 1781484173713 -- URL -> /api/issues
+
+Method -> POST -- Time -> 1781484297701 -- URL -> /api/issues
+
+Method -> GET -- Time -> 1781485841979 -- URL -> /api/issues
+
+Method -> POST -- Time -> 1781485855507 -- URL -> /api/issues
+
+Method -> POST -- Time -> 1781486312669 -- URL -> /api/issues
+
+Method -> POST -- Time -> 1781486344077 -- URL -> /api/issues
+
+Method -> POST -- Time -> 1781486364258 -- URL -> /api/issues
+
+Method -> POST -- Time -> 1781486547826 -- URL -> /api/issues
+
+Method -> POST -- Time -> 1781486701987 -- URL -> /api/issues
+
+Method -> POST -- Time -> 1781486879965 -- URL -> /api/issues

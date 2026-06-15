@@ -2,7 +2,7 @@ export interface IUser {
     name: string;
     email: string;
     password: string;
-    role: string;
+    role?: "contributor" | "maintainer";
 }
 
 export interface IUserLogin {

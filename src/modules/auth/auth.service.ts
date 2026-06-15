@@ -7,11 +7,21 @@ import jwt from "jsonwebtoken";
 const userSignupInDB = async (payload: IUser) => {
 
     const { name, email, password, role } = payload;
+    if (
+        role &&
+        role !== "contributor" &&
+        role !== "maintainer"
+    ) {
+        throw new Error(
+            "Role must be contributor or maintainer"
+        );
+    }
+
     const hashPassword = await bcrypt.hash(password, 10);
 
     const result = await pool.query(`
         INSERT INTO users(name, email, password, role) 
-        VALUES($1,$2,$3,$4) 
+        VALUES($1,$2,$3,COALESCE($4,'contributor')) 
         RETURNING *`,
         [name, email, hashPassword, role]);
     // console.log(result)

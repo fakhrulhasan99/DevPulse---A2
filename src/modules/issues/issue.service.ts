@@ -22,6 +22,13 @@ const createIssueInDB = async (payload: any) => {
     return result;
 };
 
+const getAllIssuesFromDB = async () => {
+    const result = await pool.query(`
+      SELECT * FROM issues`);
+    return result;
+};
+
 export const issueService = {
     createIssueInDB,
+    getAllIssuesFromDB
 }
