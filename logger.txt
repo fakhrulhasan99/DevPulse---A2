@@ -138,3 +138,23 @@ Method -> POST -- Time -> 1781486547826 -- URL -> /api/issues
 Method -> POST -- Time -> 1781486701987 -- URL -> /api/issues
 
 Method -> POST -- Time -> 1781486879965 -- URL -> /api/issues
+
+Method -> POST -- Time -> 1781487752076 -- URL -> /api/issues
+
+Method -> POST -- Time -> 1781487776467 -- URL -> /api/issues
+
+Method -> GET -- Time -> 1781489778569 -- URL -> /api/issues
+
+Method -> GET -- Time -> 1781489819598 -- URL -> /api/issues?sort=newest
+
+Method -> GET -- Time -> 1781489836453 -- URL -> /api/issues?sort=oldest
+
+Method -> GET -- Time -> 1781489954313 -- URL -> /api/issues?sort=oldest
+
+Method -> GET -- Time -> 1781490031843 -- URL -> /api/issues?type=bug
+
+Method -> POST -- Time -> 1781490093468 -- URL -> /api/issues
+
+Method -> GET -- Time -> 1781490109286 -- URL -> /api/issues?type=feature_request
+
+Method -> GET -- Time -> 1781490139990 -- URL -> /api/issues?status=open
