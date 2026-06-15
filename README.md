@@ -96,7 +96,7 @@ GET /api/issues?sort=newest&type=bug&status=open
 ### 1. Clone the repository
 
 ```bash
-git clone [(https://github.com/fakhrulhasan99/DevPulse---A2)]
+git clone https://github.com/fakhrulhasan99/DevPulse---A2
 ```
 
 ### 2. Navigate to project directory
