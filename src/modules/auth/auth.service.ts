@@ -32,7 +32,7 @@ const userSignupInDB = async (payload: IUser) => {
 const getAllUserFromDB = async () => {
     const result = await pool.query(`
       SELECT * FROM users`);
-    return result;
+    return result.rows;
 };
 
 const loginUserInDB = async (payload: IUserLogin) => {
